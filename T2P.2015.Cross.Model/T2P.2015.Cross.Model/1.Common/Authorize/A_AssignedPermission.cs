@@ -29,7 +29,7 @@ namespace T2P._2015.Cross.Model
             get { return _a_ObjectFunctionID; }
             set { _a_ObjectFunctionID = value; }
         }
-
+        //Thich thi sua
         public override string Table { get { return "A_AssignedPermission"; } }
 
         public override string PrimaryKey { get { return ID.ToString(); } }
