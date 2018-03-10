@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ReservationReq" type="ReservationReq"/>
+	<xs:complexType name="ReservationReq">
+		<xs:sequence>
+			<xs:element name="version" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="requestID" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="timestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="reservation" type="Reservation" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Reservation">
+		<xs:sequence>
+			<xs:element name="booker" type="Contact" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="company" type="Company" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="hotel" type="Hotel" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="transactionNumber" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="reservationNumber" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="17"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="reservationStatus" type="ReservationStatusValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="room" type="Room" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="bookingDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="checkInDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="checkOutDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="grossAmount" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="payment" type="Payment" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="cancellationDeadline" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="cancellationFee" type="Price" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dbi" type="DBI" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="freeText" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Contact">
+		<xs:sequence>
+			<xs:element name="salutation" type="SalutationValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstName" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="lastName" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="phone" type="Phone" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="email" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Company">
+		<xs:sequence>
+			<xs:element name="companyCode" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="companySubCode" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="name" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="address" type="Address" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="allowServiceCode" type="AllowServiceCode" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="vatNumber" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Hotel">
+		<xs:sequence>
+			<xs:element name="hotelCode" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="name" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="phone" type="Phone" minOccurs="1" maxOccurs="2"/>
+			<xs:element name="address" type="Address" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="email" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="language" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="timezone" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contact" type="Contact" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Room">
+		<xs:sequence>
+			<xs:element name="type" type="RoomTypeValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="quantity" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="checkInDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="checkOutDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="unitPrice" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="traveler" type="Traveler" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Price">
+		<xs:sequence>
+			<xs:element name="value" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="currencyCode" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="3"/>
+						<xs:maxLength value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Payment">
+		<xs:sequence>
+			<xs:element name="method" type="PaymentMethodValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="provider" type="PaymentProviderValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="accountNumber" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="expireDate" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="4"/>
+						<xs:maxLength value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Address">
+		<xs:sequence>
+			<xs:element name="street" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="city" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="postalCode" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="country" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Phone">
+		<xs:sequence>
+			<xs:element name="value" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="type" type="PhoneTypeValue" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Traveler">
+		<xs:sequence>
+			<xs:element name="salutation" type="SalutationValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstName" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="lastName" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="phone" type="Phone" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="email" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dbi" type="DBI" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DBI">
+		<xs:sequence>
+			<xs:element name="accountingUnit_AE" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="accountingCode_AK" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="orderNumber_AU" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="departureDate_BD" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="7"/>
+						<xs:maxLength value="7"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="departmentCode_DS" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="internalAccount_IK" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="costCenter_KS" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="employeeNumber_PK" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="projectNumber_PR" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="destination_RZ" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AllowServiceCode">
+		<xs:sequence>
+			<xs:element name="ADM" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="BUS" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="BRE" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="DEP" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ENT" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FAB" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="INT" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="KOM" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="LOG" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="LTA" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="NOS" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PAR" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ROR" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SON" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="STR" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="TAG" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="TKO" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="TLM" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="TRA" type="BooleanType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="BooleanType">
+		<xs:restriction base="xs:string">
+            <xs:enumeration value="TRUE"/>
+            <xs:enumeration value="FALSE"/>
+        </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReservationStatusValue">
+		<xs:restriction base="xs:string">
+            <xs:enumeration value="NEW"/>
+            <xs:enumeration value="CANCEL"/>
+			<xs:enumeration value="UPDATE"/>
+        </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SalutationValue">
+		<xs:restriction base="xs:string">
+            <xs:enumeration value="MR"/>
+            <xs:enumeration value="MRS"/>
+			<xs:enumeration value="MS"/>
+        </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RoomTypeValue">
+		<xs:restriction base="xs:string">
+            <xs:enumeration value="SINGLE"/>
+            <xs:enumeration value="DOUBLE"/>
+			<xs:enumeration value="OTHER"/>
+        </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PaymentMethodValue">
+		<xs:restriction base="xs:string">
+            <xs:enumeration value="VCC"/>
+            <xs:enumeration value="SELF_PAYMENT"/>
+        </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PaymentProviderValue">
+		<xs:restriction base="xs:string">
+            <xs:enumeration value="AX"/>
+            <xs:enumeration value="AP"/>
+        </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PhoneTypeValue">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FAX"/>
+            <xs:enumeration value="PHONE"/>
+        </xs:restriction>
+	</xs:simpleType>
+</xs:schema>

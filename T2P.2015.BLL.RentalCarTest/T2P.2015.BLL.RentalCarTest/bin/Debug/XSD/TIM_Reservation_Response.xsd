@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="types.xsd"/>
+    <xs:element name="ReservationRS" type="ReservationRS"/>
+  <xs:complexType name="ReservationRS">
+    <xs:sequence>
+      <xs:element name="Success" type="Success" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Error" type="Error" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="transactionIdentifier" use="required" type="Id"/>
+    <xs:attribute name="timestamp" use="required" type="xs:dateTime"/>
+    <xs:attribute name="version" use="required" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="Error">
+    <xs:sequence>
+      <xs:element name="ErrorCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ErrorDescription" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>    
+  </xs:complexType>
+  <xs:complexType name="Success">
+    <xs:sequence>
+      <xs:element name="VCC" type="VCC" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Message" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VCC">
+    <xs:sequence>
+      <xs:element name="CardProvider" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="vCCNumber" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CVC" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CardHolder" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ValidFrom" type="xs:date" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ExpiryDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
+
+

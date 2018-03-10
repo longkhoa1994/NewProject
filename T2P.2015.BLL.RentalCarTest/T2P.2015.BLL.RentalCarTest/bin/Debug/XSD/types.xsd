@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Price" type="Price"/>
+    <xs:complexType name="Price">
+        <xs:sequence>
+            <xs:element name="amount" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="currencyCode" type="CurrencyCode" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="CurrencyCode">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Id">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="TransactionNumber">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="10"/>
+            <xs:maxLength value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CountryCode">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="2"/>
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="Address" type="Address"/>
+    <xs:complexType name="Address">
+        <xs:sequence>
+            <xs:element name="street" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="zipCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="city" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="country" type="CountryCode" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="Salutation">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MRS"/>
+            <xs:enumeration value="MR"/>
+            <xs:enumeration value="MS"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="KeyValuePair" type="KeyValuePair"/>
+    <xs:complexType name="KeyValuePair">
+        <xs:sequence>
+            <xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="key" use="optional" type="xs:string"/>
+    </xs:complexType>
+    <xs:simpleType name="TimeUnit">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SECOND"/>
+            <xs:enumeration value="MINUTE"/>
+            <xs:enumeration value="HOUR"/>
+            <xs:enumeration value="DAY"/>
+            <xs:enumeration value="WEEK"/>
+            <xs:enumeration value="MONTH"/>
+            <xs:enumeration value="YEAR"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="SenderType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="EMAIL"/>
+            <xs:enumeration value="FAX"/>
+            <xs:enumeration value="LETTER"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TaxCodeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BED_TAX"/>
+            <xs:enumeration value="CITY_HOTEL_FEE"/>
+            <xs:enumeration value="CITY_TAX"/>
+            <xs:enumeration value="COUNTY_TAX"/>
+            <xs:enumeration value="ENERGY_TAX"/>
+            <xs:enumeration value="FEDERAL_TAX"/>
+            <xs:enumeration value="FOOD_BEVERAGE_TAX"/>
+            <xs:enumeration value="LODGING_TAX"/>
+            <xs:enumeration value="MAINTENANCE_TAX"/>
+            <xs:enumeration value="OCCUPANCY_TAX"/>
+            <xs:enumeration value="PACKAGE_FEE"/>
+            <xs:enumeration value="RESORT_FEE"/>
+            <xs:enumeration value="SALES_TAX"/>
+            <xs:enumeration value="SERVICE_CHARGE"/>
+            <xs:enumeration value="STATE_TAX"/>
+            <xs:enumeration value="SURCHARGE"/>
+            <xs:enumeration value="TOTAL_TAX"/>
+            <xs:enumeration value="TOURISM_TAX"/>
+            <xs:enumeration value="VAT_GST"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ServiceCodeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DEP"/>
+            <xs:enumeration value="ENT"/>
+            <xs:enumeration value="FAB"/>
+            <xs:enumeration value="ADM"/>
+            <xs:enumeration value="KOM"/>
+            <xs:enumeration value="LOG"/>
+            <xs:enumeration value="NOS"/>
+            <xs:enumeration value="SON"/>
+            <xs:enumeration value="TAG"/>
+            <xs:enumeration value="TKO"/>
+            <xs:enumeration value="TRA"/>
+            <xs:enumeration value="STR"/>
+            <xs:enumeration value="TLM"/>
+            <xs:enumeration value="INT"/>
+            <xs:enumeration value="BUS"/>
+            <xs:enumeration value="LTA"/>
+            <xs:enumeration value="PAR"/>
+            <xs:enumeration value="ROR"/>
+            <xs:enumeration value="BRE"/>
+            <xs:enumeration value="AAA"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="HotelContact" type="HotelContact"/>
+    <xs:complexType name="HotelContact">
+        <xs:sequence>
+            <xs:element name="salutation" type="Salutation" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="position" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="fax" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="id" use="optional" type="Id"/>
+    </xs:complexType>
+    <xs:simpleType name="PaymentMethodType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DIRECT_PAYER"/>
+            <xs:enumeration value="COMPANY_ON_ACCOUNT"/>
+            <xs:enumeration value="COMPANY_CREDIT_CARD"/>
+            <xs:enumeration value="PERSONAL_CREDIT_CARD"/>
+            <xs:enumeration value="VIRTUAL_CREDIT_CARD"/>
+            <xs:enumeration value="AIR_PLUS_COMPANY_ACCOUNT_HOTEL_MERCHANT"/>
+            <xs:enumeration value="AIR_PLUS_COMPANY_ACCOUNT_HRSMERCHANT"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
