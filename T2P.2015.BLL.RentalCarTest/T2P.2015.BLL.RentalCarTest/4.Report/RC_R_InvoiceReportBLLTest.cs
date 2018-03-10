@@ -578,12 +578,14 @@ namespace T2P._2015.BLL.RentalCarTest._4.Report
             dynamic input = new Dynamic();
             List<P_R_ClaimReport> listR_I_DataReport = CreateDataReportClaim();// BaseBLL.Instance.CommandStoredProcedureName<R_I_DataReport>("p_R_I_DataReport_GetForClaimsReport_Test", input);
             List<long> listR_I_DataID;
+            
             //_mockBLL.Object.CreateExcelFile(filePath, listR_I_DataReport, out listR_I_DataID);
         }
 
         private List<P_R_ClaimReport> CreateDataReportClaim()
         {
             return new List<P_R_ClaimReport>() { };
+            //Test write text in page
         }
     }
 }
