@@ -12,7 +12,7 @@ using System.Data;
 
 namespace T2P._2015.BLL.RentalCarTest._4.Report
 {
-    [TestClass]
+    [TestClass] 
     public class RC_R_InvoiceReportBLLTest
     {
         private Mock<RC_R_InvoiceReportBLL> _mockBLL;
