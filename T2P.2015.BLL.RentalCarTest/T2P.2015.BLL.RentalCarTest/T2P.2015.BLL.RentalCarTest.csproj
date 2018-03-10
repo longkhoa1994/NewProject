@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F26A1FB-14B0-4E54-9E55-9C65A5C489C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>T2P._2015.BLL.RentalCarTest</RootNamespace>
+    <AssemblyName>T2P.2015.BLL.RentalCarTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\2. T2P.2015.Service\T2P.2015.Service.API\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moq, Version=4.7.8.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\2. T2P.2015.Service\T2P.2015.Service.API\packages\Moq.4.7.8\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\6. DLL Library\API\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="1.Booking\ImportBookingTest.cs" />
+    <Compile Include="2.Invoice\InvoiceDataBLLTest.cs" />
+    <Compile Include="2.Invoice\ExtractDataBLLTest.cs" />
+    <Compile Include="2.Invoice\R_InvoiceCorrectionTest.cs" />
+    <Compile Include="2.Invoice\ServiceKeywordBLLTest.cs" />
+    <Compile Include="2.Invoice\VerifyInvoiceBLLTest.cs" />
+    <Compile Include="4.Report\ExcelTest.cs" />
+    <Compile Include="4.Report\RC_R_InvoiceReportBLLTest.cs" />
+    <Compile Include="6.Fin\R_F_TransactionBLLTest.cs" />
+    <Compile Include="6.Fin\MacthingTest.cs" />
+    <Compile Include="InitDataRentalCar.cs" />
+    <Compile Include="1.Booking\StopBooking.cs" />
+    <Compile Include="1.Booking\StopBookingTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\3. T2P.2015.BLL\T2P.2015.BLL.CarRental\T2P.2015.BLL.CarRental.csproj">
+      <Project>{ebc01c9b-528f-4aed-811c-30959d0b3d30}</Project>
+      <Name>T2P.2015.BLL.CarRental</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3. T2P.2015.BLL\T2P.2015.BLL\T2P.2015.BLL.csproj">
+      <Project>{d626079f-9edd-41ca-9640-9deea325f276}</Project>
+      <Name>T2P.2015.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\4. T2P.2015.DAL\T2P.2015.DAL.CarRental\T2P.2015.DAL.CarRental.csproj">
+      <Project>{49ab6c92-f326-4ca1-b2ce-b786fb3f1e2b}</Project>
+      <Name>T2P.2015.DAL.CarRental</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\4. T2P.2015.DAL\T2P.2015.DAL\T2P.2015.DAL.csproj">
+      <Project>{178ec309-6cae-4f46-bdc0-a9478b56aa10}</Project>
+      <Name>T2P.2015.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\5. T2P.2015.Cross\T2P.2015.Cross.Enum\T2P.2015.Cross.Enum.csproj">
+      <Project>{dbbb4f38-f1a5-43ed-b3d5-495446d074ab}</Project>
+      <Name>T2P.2015.Cross.Enum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\5. T2P.2015.Cross\T2P.2015.Cross.Model\T2P.2015.Cross.Model.csproj">
+      <Project>{3b7d3089-b2fc-412c-804e-8c9ec83f6be5}</Project>
+      <Name>T2P.2015.Cross.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\5. T2P.2015.Cross\T2P.2015.Cross.Reference\T2P.2015.Cross.Reference.csproj">
+      <Project>{50615b66-605c-430a-ba27-465a9e322bb1}</Project>
+      <Name>T2P.2015.Cross.Reference</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\5. T2P.2015.Cross\T2P.2015.Cross.Utility\T2P.2015.Cross.Utility.csproj">
+      <Project>{02536f65-c684-4570-9090-9c5ef582aff3}</Project>
+      <Name>T2P.2015.Cross.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="3.Notification\" />
+    <Folder Include="5.Master\" />
+    <Folder Include="7.Process\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

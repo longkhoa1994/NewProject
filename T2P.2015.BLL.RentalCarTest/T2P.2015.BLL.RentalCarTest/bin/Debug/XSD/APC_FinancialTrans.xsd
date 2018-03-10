@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="APC_FinancialTrans" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="FinancialHeader" type="FinancialHeader"/>
+  <xs:complexType name="FinancialHeader">
+    <xs:sequence>
+      <xs:element name="UserID" type="xs:long" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="HotelPlatformName" type="HotelPlatform" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TransactionIndentify" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TransactionCount" type="xs:int" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CompanyIdentify" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SequenceID" type="xs:string"  minOccurs="1" maxOccurs="1" />
+      <xs:element name="ReprintCount" type="xs:int" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Type" type="TypeTran" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="FinancialTransaction" type="FinancialTransaction" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+
+    <xs:attribute name="Timestamp" use="required" type="xs:dateTime"/>
+    <xs:attribute name="Version" use="required" type="xs:string"/>
+
+  </xs:complexType>
+
+  <xs:element name="FinancialTransaction" type="FinancialTransaction"/>
+  <xs:complexType name="FinancialTransaction">
+    <xs:sequence>
+      <xs:element name="FinancialID" type="xs:long" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DocumentNo" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GrossAmount" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CurrencyCode" type="CurrencyCode" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SalesDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CardNumber" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TravelerName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Hotel" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ReservationNumber" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GrossAmountBC" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CurrencyCodeBC" type="CurrencyCode" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ExchangeRate" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ExchangeFee" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FinancialAddition" type="FinancialAddition" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="FinancialAddition" type="FinancialAddition"/>
+  <xs:complexType name="FinancialAddition">
+    <xs:sequence>
+      <xs:element name="DBI_PK" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DBI_KS" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DBI_DS" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DBI_AE" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DBI_IK" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DBI_BD" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DBI_PR" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DBI_AU" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DBI_AK" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DBI_RZ" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+
+  <xs:element name="ResultFIN" type="ResultFIN"/>
+  <xs:complexType name="ResultFIN">
+    <xs:sequence>
+      <xs:element name="TransactionIndentify" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ErrorCode" type="ErrorCode" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ErrorText" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="Timestamp" use="required" type="xs:dateTime"/>
+    <xs:attribute name="Version" use="required" type="xs:string"/>
+  </xs:complexType>
+
+
+  <xs:simpleType name="CurrencyCode">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeTran">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ATX"/>
+      <xs:enumeration value="LARS"/>
+      <xs:enumeration value="CSV"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ErrorCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success"/>
+      <xs:enumeration value="Invalid"/>
+      <xs:enumeration value="System"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HotelPlatform">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HDE"/>
+      <xs:enumeration value="HRS"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

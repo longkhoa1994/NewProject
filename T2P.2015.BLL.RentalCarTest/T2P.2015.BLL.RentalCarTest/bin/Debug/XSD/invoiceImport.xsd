@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="types.xsd"/>
+	<xs:element name="SenderInformation" type="SenderInformation"/>
+	<xs:complexType name="SenderInformation">
+		<xs:sequence>
+			<xs:element name="received" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="senderType" type="SenderType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sender" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Invoice" type="Invoice"/>
+	<xs:complexType name="Invoice">
+		<xs:sequence>
+			<xs:element name="bookingProcessNumber" type="Id" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="hotelId" type="Id" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="companyId" type="Id" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="invoiceNumber" type="Id" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="invoiceDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="invoiceExchange" type="InvoiceExchange" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="amountAfterTax" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="amountBeforeTax" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="vatIdentNumber" type="Id" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="taxIdentNumber" type="Id" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="checkIn" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="checkOut" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="senderInformation" type="SenderInformation" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="document" type="InvoiceDocument" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="taxes" type="InvoiceTax" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="hotelContacts" type="HotelContact" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="positions" type="InvoicePosition" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="companyContacts" type="CompanyContact" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" use="optional" type="Id"/>
+	</xs:complexType>
+	<xs:element name="InvoiceExchange" type="InvoiceExchange"/>
+	<xs:complexType name="InvoiceExchange">
+		<xs:sequence>
+			<xs:element name="exchangeAmount" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="exchangeRate" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="exchangeCharge" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="InvoiceDocument" type="InvoiceDocument"/>
+	<xs:complexType name="InvoiceDocument">
+		<xs:sequence>
+			<xs:element name="filename" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="file" type="xs:base64Binary" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="InvoiceTax" type="InvoiceTax"/>
+	<xs:complexType name="InvoiceTax">
+		<xs:sequence>
+			<xs:element name="taxAmount" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="taxRate" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="taxCode" type="TaxCodeType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="netAmount" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="grossAmount" type="Price" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="InvoicePosition" type="InvoicePosition"/>
+	<xs:complexType name="InvoicePosition">
+		<xs:sequence>
+			<xs:element name="serviceDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="serviceCode" type="ServiceCodeType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="serviceDescription" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="amountBeforeTax" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="amountAfterTax" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="taxAmount" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="taxRate" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="positionNo" use="optional" type="Id"/>
+	</xs:complexType>
+	<xs:element name="Header" type="Header"/>
+	<xs:complexType name="Header">
+		<xs:sequence>
+			<xs:element name="invoiceCount" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="invoice" type="Invoice" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="transactionIdentifier" use="required" type="Id"/>
+		<xs:attribute name="timestamp" use="required" type="xs:dateTime"/>
+		<xs:attribute name="version" use="required" type="xs:string"/>
+	</xs:complexType>
+	<xs:element name="CompanyContact" type="CompanyContact"/>
+	<xs:complexType name="CompanyContact">
+		<xs:sequence>
+			<xs:element name="salutation" type="Salutation" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="position" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="language" type="xs:language" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" use="optional" type="Id"/>
+	</xs:complexType>
+</xs:schema>

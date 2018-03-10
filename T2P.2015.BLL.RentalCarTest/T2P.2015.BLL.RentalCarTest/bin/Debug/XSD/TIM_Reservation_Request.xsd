@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="types.xsd"/>
+	<xs:element name="ReservationRQ" type="ReservationRQ"/>
+	<xs:complexType name="ReservationRQ">
+		<xs:sequence>
+			<xs:element name="bookingProcessCount" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="bookingProcess" type="BookingProcess" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="transactionIdentifier" use="required" type="Id"/>
+		<xs:attribute name="timestamp" use="required" type="xs:dateTime"/>
+		<xs:attribute name="version" use="required" type="xs:string"/>
+	</xs:complexType>
+	<xs:element name="CompanyPortalInfo" type="CompanyPortalInfo"/>
+	<xs:complexType name="CompanyPortalInfo">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="shortName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="customerNo" type="Id" minOccurs="1" maxOccurs="1"/>
+  	</xs:sequence>
+    <xs:attribute name="CustomerAccountNumber" use="required" type="xs:string"/>
+    <xs:attribute name="ExpiryDate" use="required" type="xs:dateTime"/>
+ </xs:complexType>
+	<xs:element name="Traveller" type="Traveller"/>
+	<xs:complexType name="Traveller">
+		<xs:sequence>
+			<xs:element name="salutation" type="Salutation" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Rate" type="Rate"/>
+	<xs:complexType name="Rate">
+		<xs:sequence>
+			<xs:element name="price" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="vatRate" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="rateTimeAmount" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="rateTimeUnit" type="TimeUnit" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="roomCategory" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BookingProcess" type="BookingProcess"/>
+	<xs:complexType name="BookingProcess">
+		<xs:sequence>
+			<xs:element name="totalAmountAfterTax" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="cancellationDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="additionalInformation" type="KeyValuePair" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="bookings" type="Booking" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="historyBookings" type="Booking" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="pos" type="POS" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="bookingCustomer" type="BookingCustomer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="hotel" type="Hotel" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="companyPortalInfo" type="CompanyPortalInfo" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	  <xs:attribute name="TransactionNumber" use="required" type="TransactionNumber" />
+    <xs:attribute name="bookingProcessNo" use="optional" type="xs:string"/>
+    <xs:attribute name="paymentProvider" use="required" type="xs:string"/>
+    <xs:attribute name="cancelled" use="optional" type="xs:boolean"/>
+		<xs:attribute name="aggregatedCheckIn" use="optional" type="xs:date"/>
+		<xs:attribute name="aggregatedCheckOut" use="optional" type="xs:date"/>
+	</xs:complexType>
+	<xs:element name="BookingCustomer" type="BookingCustomer"/>
+	<xs:complexType name="BookingCustomer">
+		<xs:sequence>
+			<xs:element name="salutation" type="Salutation" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="phone" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="email" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="billingAddress" type="Address" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Hotel" type="Hotel"/>
+	<xs:complexType name="Hotel">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="address" type="Address" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="phone" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fax" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="email" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="communicationLanguages" type="xs:language" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="timezone" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="hotelContacts" type="HotelContact" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" use="optional" type="Id"/>
+	</xs:complexType>
+	<xs:element name="Booking" type="Booking"/>
+	<xs:complexType name="Booking">
+		<xs:sequence>
+			<xs:element name="numberOfSingleRooms" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="numberOfDoubleRooms" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="checkIn" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="checkOut" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="guaranteeType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="totalAmountAfterTax" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="cancellationFee" type="Price" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="paymentMethod" type="PaymentMethodType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="additionalInformation" type="KeyValuePair" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="lastUpdate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="cancellationDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="cancellationDeadline" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="bookingDeposit" type="Price" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="bookingDepositRequired" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="travellers" type="Traveller" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="rates" type="Rate" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="dbiFields" type="DbiField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="externalBookingNo" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="bookingNo" use="optional" type="xs:string"/>
+		<xs:attribute name="status" use="required" type="xs:string"/>
+		<xs:attribute name="followingBookingNo" use="optional" type="Id"/>
+	</xs:complexType>
+	<xs:element name="POS" type="POS"/>
+	<xs:complexType name="POS">
+		<xs:sequence>
+			<xs:element name="requesterID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="companyId" type="Id" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="companyName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="vatIdentificationNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="bookingChannelType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="allowedServiceCodes" type="ServiceCodeType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  <xs:element name="DbiField" type="DbiField"/>
+  
+	<xs:complexType name="DbiField">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
