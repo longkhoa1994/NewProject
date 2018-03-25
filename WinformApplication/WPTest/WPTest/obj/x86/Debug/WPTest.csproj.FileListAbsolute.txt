@@ -1,0 +1,8 @@
+D:\GitHere\NewProject\WinformApplication\WPTest\WPTest\bin\Debug\WPTest.exe
+D:\GitHere\NewProject\WinformApplication\WPTest\WPTest\bin\Debug\WPTest.pdb
+D:\GitHere\NewProject\WinformApplication\WPTest\WPTest\obj\x86\Debug\WPTest.Properties.Resources.resources
+D:\GitHere\NewProject\WinformApplication\WPTest\WPTest\obj\x86\Debug\WPTest.csproj.GenerateResource.Cache
+D:\GitHere\NewProject\WinformApplication\WPTest\WPTest\obj\x86\Debug\WPTest.exe
+D:\GitHere\NewProject\WinformApplication\WPTest\WPTest\obj\x86\Debug\WPTest.pdb
+D:\GitHere\NewProject\WinformApplication\WPTest\WPTest\obj\x86\Debug\WPTest.csprojResolveAssemblyReference.cache
+D:\GitHere\NewProject\WinformApplication\WPTest\WPTest\obj\x86\Debug\WPTest.Form1.resources

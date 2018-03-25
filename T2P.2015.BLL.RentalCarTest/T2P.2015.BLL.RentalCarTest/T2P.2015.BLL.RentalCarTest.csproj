@@ -102,17 +102,9 @@
       <Project>{dbbb4f38-f1a5-43ed-b3d5-495446d074ab}</Project>
       <Name>T2P.2015.Cross.Enum</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\5. T2P.2015.Cross\T2P.2015.Cross.Model\T2P.2015.Cross.Model.csproj">
-      <Project>{3b7d3089-b2fc-412c-804e-8c9ec83f6be5}</Project>
-      <Name>T2P.2015.Cross.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\5. T2P.2015.Cross\T2P.2015.Cross.Reference\T2P.2015.Cross.Reference.csproj">
       <Project>{50615b66-605c-430a-ba27-465a9e322bb1}</Project>
       <Name>T2P.2015.Cross.Reference</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\5. T2P.2015.Cross\T2P.2015.Cross.Utility\T2P.2015.Cross.Utility.csproj">
-      <Project>{02536f65-c684-4570-9090-9c5ef582aff3}</Project>
-      <Name>T2P.2015.Cross.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +117,7 @@
     <Folder Include="3.Notification\" />
     <Folder Include="5.Master\" />
     <Folder Include="7.Process\" />
+    <Folder Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
