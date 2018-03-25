@@ -68,3 +68,6 @@ D:\GIT\Configuration Items\3. Implementation\3.1. T2P.2015.BLL.Test\T2P.2015.BLL
 D:\GIT\Configuration Items\3. Implementation\3.1. T2P.2015.BLL.Test\T2P.2015.BLL.RentalCarTest\obj\Debug\T2P.2015.BLL.RentalCarTest.csprojResolveAssemblyReference.cache
 D:\GIT\Configuration Items\3. Implementation\3.1. T2P.2015.BLL.Test\T2P.2015.BLL.RentalCarTest\obj\Debug\T2P.2015.BLL.RentalCarTest.dll
 D:\GIT\Configuration Items\3. Implementation\3.1. T2P.2015.BLL.Test\T2P.2015.BLL.RentalCarTest\obj\Debug\T2P.2015.BLL.RentalCarTest.pdb
+D:\GitHere\NewProject\T2P.2015.BLL.RentalCarTest\T2P.2015.BLL.RentalCarTest\obj\Debug\T2P.2015.BLL.RentalCarTest.csprojResolveAssemblyReference.cache
+D:\GitHere\NewProject\T2P.2015.BLL.RentalCarTest\T2P.2015.BLL.RentalCarTest\obj\Debug\T2P.2015.BLL.RentalCarTest.dll
+D:\GitHere\NewProject\T2P.2015.BLL.RentalCarTest\T2P.2015.BLL.RentalCarTest\obj\Debug\T2P.2015.BLL.RentalCarTest.pdb

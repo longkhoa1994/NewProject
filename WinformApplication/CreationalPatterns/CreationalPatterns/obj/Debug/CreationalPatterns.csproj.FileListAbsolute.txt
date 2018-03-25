@@ -1,0 +1,5 @@
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\CreationalPatterns\bin\Debug\CreationalPatterns.dll
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\CreationalPatterns\bin\Debug\CreationalPatterns.pdb
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\CreationalPatterns\obj\Debug\CreationalPatterns.dll
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\CreationalPatterns\obj\Debug\CreationalPatterns.pdb
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\CreationalPatterns\obj\Debug\CreationalPatterns.csprojResolveAssemblyReference.cache

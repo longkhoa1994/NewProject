@@ -1,0 +1,4 @@
+D:\GitHere\NewProject\WinformApplication\WPTest\Excel\bin\Debug\Excel.dll
+D:\GitHere\NewProject\WinformApplication\WPTest\Excel\bin\Debug\Excel.pdb
+D:\GitHere\NewProject\WinformApplication\WPTest\Excel\obj\Debug\Excel.dll
+D:\GitHere\NewProject\WinformApplication\WPTest\Excel\obj\Debug\Excel.pdb

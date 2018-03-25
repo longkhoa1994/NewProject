@@ -811,10 +811,6 @@
       <Project>{50615b66-605c-430a-ba27-465a9e322bb1}</Project>
       <Name>T2P.2015.Cross.Reference</Name>
     </ProjectReference>
-    <ProjectReference Include="..\T2P.2015.Cross.Utility\T2P.2015.Cross.Utility.csproj">
-      <Project>{02536f65-c684-4570-9090-9c5ef582aff3}</Project>
-      <Name>T2P.2015.Cross.Utility</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
