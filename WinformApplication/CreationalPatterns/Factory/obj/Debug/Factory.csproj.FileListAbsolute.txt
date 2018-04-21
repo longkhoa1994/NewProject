@@ -1,0 +1,5 @@
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\Factory\bin\Debug\Factory.dll
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\Factory\bin\Debug\Factory.pdb
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\Factory\obj\Debug\Factory.dll
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\Factory\obj\Debug\Factory.pdb
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\Factory\obj\Debug\Factory.csprojResolveAssemblyReference.cache

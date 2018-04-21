@@ -5,19 +5,24 @@ using System.Text;
 
 namespace CreationalPatterns
 {
-    public static class SingleTonClass
+    public class Singleton
     {
+        private static Singleton instance;
 
-        public static SingleTonClass Intance1()
+        private Singleton() { }
+
+        public static Singleton Instance
         {
-            return null;
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Singleton();
+                }
+                return instance;
+            }
         }
-        
-
-        
-
     }
-
     public class NonSingleTonClass
     {
         public void Nontaticmethod()
@@ -36,7 +41,7 @@ namespace CreationalPatterns
         public void Tests()
         {
             NonSingleTonClass.Nontaticmethod1();
-            SingleTonClass.Intance();
+            //SingleTonClass.Intance();
             //SingleTonClass abc = new SingleTonClass();
             NonSingleTonClass asfklds = new NonSingleTonClass();
             asfklds.Nontaticmethod();

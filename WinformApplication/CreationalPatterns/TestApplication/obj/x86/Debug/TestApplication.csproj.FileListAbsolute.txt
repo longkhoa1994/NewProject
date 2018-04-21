@@ -1,0 +1,9 @@
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\TestApplication\obj\x86\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\TestApplication\bin\Debug\TestApplication.exe
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\TestApplication\bin\Debug\TestApplication.pdb
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\TestApplication\bin\Debug\CreationalPatterns.dll
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\TestApplication\bin\Debug\CreationalPatterns.pdb
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\TestApplication\obj\x86\Debug\TestApplication.exe
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\TestApplication\obj\x86\Debug\TestApplication.pdb
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\TestApplication\bin\Debug\Factory.dll
+D:\GitHere\NewProject\WinformApplication\CreationalPatterns\TestApplication\bin\Debug\Factory.pdb

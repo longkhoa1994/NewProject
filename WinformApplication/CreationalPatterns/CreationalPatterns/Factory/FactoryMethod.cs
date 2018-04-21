@@ -16,6 +16,11 @@ namespace CreationalPatterns
             return pizza;
         }
         public abstract IPizza CreatePizza(IList<string> ingredients);
+
+        public virtual IPizza DropPizze(IList<string> ingredients)
+        {
+            return new NewYorkPizza();
+        }
     }
 
     public class NewYorkPizzaStore : PizzaStore
@@ -25,5 +30,16 @@ namespace CreationalPatterns
             return new NewYorkPizza();
         }
      
+    }
+    public class ChicagoPizzaStore : PizzaStore
+    {
+        public override IPizza CreatePizza(IList<string> ingredients)
+        {
+            return new ChicagoPizza();
+        }
+        public override IPizza DropPizze(IList<string> ingredients)
+        {
+            return new ChicagoPizza();
+        }
     }
 }
