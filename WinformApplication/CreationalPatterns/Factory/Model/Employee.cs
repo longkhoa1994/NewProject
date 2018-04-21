@@ -22,6 +22,7 @@ namespace Factory
         public decimal Bonus { get; set; }
 
         public decimal HouseAllowance { get; set; }
+
         public int EmployeeID { get; set; }
 
         public Employee()

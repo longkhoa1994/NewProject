@@ -12,18 +12,6 @@ namespace Factory.Factory.FactoryMethod
         {
             _emp = emp;
         }
-        public abstract IEmploye
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            eManager Create();
+        public abstract IEmployeeManager Create();
     }
 }
