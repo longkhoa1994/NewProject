@@ -6,7 +6,7 @@ using System.Text;
 namespace CreationalPatterns
 {
     public interface IPizza
-    {
+    {           
         void Box();
 
         void Cut();
